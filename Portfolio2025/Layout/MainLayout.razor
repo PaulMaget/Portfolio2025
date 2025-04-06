@@ -1,0 +1,35 @@
+﻿@inherits LayoutComponentBase
+@using Microsoft.AspNetCore.Components.Sections
+
+@* Mud Blazor *@
+@* Required *@
+<MudThemeProvider Theme="@Theme" />
+<MudPopoverProvider />
+
+<div class="mud-elevation-4 py-4 px-5 rounded" style="display: flex">
+    <div style="flex:1"></div>
+    <div style="flex-basis:100px">
+        <MudMenu Icon="@Icons.Material.Filled.Settings"
+        Color="Color.Primary"
+        AriaLabel="Open user menu">
+            <MudMenuItem Icon="@Icons.Material.Filled.LightMode"/>
+            <MudMenuItem Icon="@Icons.Material.Filled.DarkMode"/>
+            <MudMenuItem Icon="@Icons.Material.Filled.AutoMode"/>
+        </MudMenu>
+    </div>
+</div>
+
+<SectionOutlet SectionName="hero-frame"/>
+
+<div class="mud-elevation-2 py-8 px-15" style="margin: 0 200px 0 200px">
+    @Body
+</div>
+
+@code{
+    MudTheme Theme = new();
+
+    protected override void OnInitialized()
+    {
+        Theme.PaletteLight.Primary = Colors.DeepPurple.Lighten1;
+    }
+}
