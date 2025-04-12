@@ -3,18 +3,18 @@
 
 @* Mud Blazor *@
 @* Required *@
-<MudThemeProvider Theme="@Theme" />
+<MudThemeProvider @ref="@_mudThemeProvider" Theme="@Theme" @bind-IsDarkMode="@_isDarkMode" />
 <MudPopoverProvider />
 
-<div class="mud-elevation-4 py-4 px-5 rounded" style="display: flex">
+<div class="mud-elevation-4 py-3 px-5 rounded" style="display: flex">
     <div style="flex:1"></div>
     <div style="flex-basis:100px">
-        <MudMenu Icon="@Icons.Material.Filled.Settings"
+        <MudMenu Icon="@SelectedModeIcon"
         Color="Color.Primary"
         AriaLabel="Open user menu">
-            <MudMenuItem Icon="@Icons.Material.Filled.LightMode"/>
-            <MudMenuItem Icon="@Icons.Material.Filled.DarkMode"/>
-            <MudMenuItem Icon="@Icons.Material.Filled.AutoMode"/>
+            <MudMenuItem Icon="@Icons.Material.Filled.LightMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Light)" />
+            <MudMenuItem Icon="@Icons.Material.Filled.DarkMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Dark)" />
+            <MudMenuItem Icon="@Icons.Material.Filled.AutoMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Auto)" />
         </MudMenu>
     </div>
 </div>
@@ -28,8 +28,56 @@
 @code{
     MudTheme Theme = new();
 
+    SelectedMode selectedMode = SelectedMode.Auto;
+
+    private MudThemeProvider _mudThemeProvider;
+    private bool _isDarkMode;
+
+    public enum SelectedMode
+    {
+        Light,
+        Dark,
+        Auto
+    }
+
     protected override void OnInitialized()
     {
         Theme.PaletteLight.Primary = Colors.DeepPurple.Lighten1;
     }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _isDarkMode = selectedMode switch
+            {
+                SelectedMode.Dark => true,
+                SelectedMode.Light => false,
+                SelectedMode.Auto => await _mudThemeProvider.GetSystemPreference(),
+                _ => false
+            };
+            StateHasChanged();
+        }
+    }
+
+    private async Task OnSelectedModeChanged(SelectedMode mode)
+    {
+        selectedMode = mode;
+        _isDarkMode = selectedMode switch
+        {
+            SelectedMode.Dark => true,
+            SelectedMode.Light => false,
+            SelectedMode.Auto => await _mudThemeProvider.GetSystemPreference(),
+			_ => false
+        };
+		StateHasChanged();
+    }
+
+    private string SelectedModeIcon => selectedMode switch
+    {
+		SelectedMode.Light => Icons.Material.Filled.LightMode,
+		SelectedMode.Dark => Icons.Material.Filled.DarkMode,
+		SelectedMode.Auto => Icons.Material.Filled.AutoMode,
+		_ => Icons.Material.Filled.AutoMode
+	};
 }

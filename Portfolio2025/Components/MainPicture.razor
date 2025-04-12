@@ -1,0 +1,16 @@
+﻿
+<div style="display:flex; justify-content:center; position: relative; height: @(Size + Top)px; @(Style)">
+	<MudAvatar Variant="Variant.Text" style="@($"top: {Top}px; width: {Size}px; height: {Size}px; position: absolute")">
+		PM
+		@* <MudImage Src="images/mony.jpg"></MudImage> *@
+	</MudAvatar>
+</div>
+
+@code {
+	[Parameter]
+	public int Top { get; set; } = -140;
+	[Parameter]
+	public int Size { get; set; } = 200;
+	[Parameter]
+	public string Style { get; set; } = "";
+}
