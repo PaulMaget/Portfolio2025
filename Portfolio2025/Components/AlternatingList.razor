@@ -1,0 +1,57 @@
+﻿
+@* N'affiche rien. On appel ChildContent ici, uniquement pour qu'il s'ajoute avec AddRow *@
+<CascadingValue Value="this">
+	@ChildContent
+</CascadingValue>
+
+<MudPaper style="@("display: grid; justify-content: space-around;" + Style)">
+
+	@for (int i = 0; i < RowAmount; i++)
+	{
+		int localI = i;
+
+		@for (int j = 0; j < Items.Count; j++)
+		{
+			<div style="grid-row: @(localI + 1); grid-column: @(j + 1);">
+				@if (IsShownInRow(localI, j) && Items[j].Template != null)
+				{
+					@Items[j].Template;
+				}
+				else
+				{
+					<MudHidden />
+				}
+			</div>
+		}
+	}
+</MudPaper>
+
+@code {
+	[Parameter]
+	public RenderFragment? ChildContent { get; set; }
+
+	[Parameter]
+	public int RowAmount { get; set; } = 2;
+
+	[Parameter]
+	public string? Style { get; set; }
+
+	private List<AlternatingListItem> Items { get; set; } = [];
+
+	public void AddRow(AlternatingListItem item)
+	{
+		Items.Add(item);
+		base.StateHasChanged();
+	}
+
+	public void RemoveRow(AlternatingListItem item)
+	{
+		Items.Remove(item);
+		base.StateHasChanged();
+	}
+
+	private bool IsShownInRow(int rowIndex, int itemIndex)
+	{
+		return itemIndex % RowAmount == rowIndex;
+	}
+}

@@ -1,0 +1,18 @@
+﻿
+@code {
+	[Parameter]
+	public RenderFragment? Template { get; set; }
+
+	[CascadingParameter]
+	public AlternatingList? AlternatingList { get; set; }
+
+	protected override void OnInitialized()
+	{
+		AlternatingList?.AddRow(this);
+	}
+
+	public void Dispose()
+	{
+		AlternatingList?.RemoveRow(this);
+	}
+}
