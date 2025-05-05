@@ -2,7 +2,7 @@
 
 public record Experience
 {
-    public required string Title { get; init; }
+    public required string Name { get; init; }
     public required string Organization { get; init; }
     public required string Year { get; init; }
     public required string ShortHtmlDescription { get; init; }
@@ -12,7 +12,7 @@ public record Experience
 public static class Experiences
 {
     public static Experience StageMJC => new() {
-        Title = "...",
+        Name = "...",
         Organization = "MJC Manosque",
         Year = "2022",
         ShortHtmlDescription = """
