@@ -1,0 +1,10 @@
+﻿@page "/projects/{projectId}"
+@using Microsoft.AspNetCore.Components.Sections
+@using Portfolio2025.Components
+
+<h3>ProjectDetails @ProjectId</h3>
+
+@code {
+	[Parameter]
+	public required string ProjectId { get; set; }
+}
