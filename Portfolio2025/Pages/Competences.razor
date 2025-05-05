@@ -1,9 +1,25 @@
 ﻿@page "/competences"
 @using Microsoft.AspNetCore.Components.Sections
 @using Portfolio2025.Components
+@using Portfolio2025.Model
 
-<h3>Mes Competences</h3>
+<h1>Mes Compétences</h1>
+
+@foreach(CompetenceCategory category in CompetencesSource.Select(c => c.Category).Distinct())
+{
+	<h2>@category.GetName()</h2>
+
+	<MudStack Row="true" Wrap="Wrap.Wrap" AlignItems="AlignItems.Baseline" Justify="Justify.SpaceBetween">
+		@foreach(Competence competence in CompetencesSource.Where(c => c.Category == category))
+		{
+			<div>
+				test : @competence.Name
+			</div>
+		}
+	</MudStack>
+}
 
 @code {
 
+	public IEnumerable<Competence> CompetencesSource => Model.Competences.All;
 }

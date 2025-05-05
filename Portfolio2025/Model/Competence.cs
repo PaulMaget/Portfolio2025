@@ -18,17 +18,19 @@ public enum CompetenceCategory
 
 public static class CompetenceExtensions
 {
-	public static string? ToString(this CompetenceCategory category) {
+	public static string GetName(this CompetenceCategory category) {
 		return category switch {
 			CompetenceCategory.Languages => "Langages",
 			CompetenceCategory.Frameworks => "Frameworks",
-			_ => null
+			_ => ""
 		};
 	}
 }
 
 public static class Competences
 {
+	public static Competence[] All => [CSharp, CSharp, CSharp, CSharp, CSharp, CSharp, CSharp, CSharp, CSharp];
+
 	public static Competence CSharp => new() {
 		Name = "C#",
 		Logo = Icons.Custom.FileFormats.FileImage,
