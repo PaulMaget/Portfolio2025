@@ -1,0 +1,17 @@
+﻿<MudTooltip Arrow="true" Style="width: 20em">
+	<ChildContent>
+		<MudIconButton Variant="Variant.Text" Color="Color.Secondary" Icon="@Icon" />
+	</ChildContent>
+	<TooltipContent>
+		<MudSkeleton Width="90px" />
+		<MudSkeleton Width="80px" />
+		<MudSkeleton Width="87px" />
+		<MudDivider/>
+		<MudButton>Voir plus</MudButton>
+	</TooltipContent>
+</MudTooltip>
+
+@code {
+	[Parameter]
+	public required string Icon { get; set; }
+}

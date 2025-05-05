@@ -6,7 +6,7 @@
 <MudThemeProvider @ref="@_mudThemeProvider" Theme="@Theme" @bind-IsDarkMode="@_isDarkMode" />
 <MudPopoverProvider />
 
-<div class="mud-elevation-4 py-3 px-5 rounded" style="display: flex">
+<MudPaper Class="mud-elevation-4 py-2 px-5 rounded mud-theme-surface" Style="display: flex">
     <div style="flex:1"></div>
     <div style="flex-basis:100px">
         <MudMenu Icon="@SelectedModeIcon"
@@ -17,11 +17,11 @@
             <MudMenuItem Icon="@Icons.Material.Filled.AutoMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Auto)" />
         </MudMenu>
     </div>
-</div>
+</MudPaper>
 
 <SectionOutlet SectionName="hero-frame"/>
 
-<div class="mud-elevation-2 py-8 px-15" style="margin: 0 200px 0 200px">
+<div class="layout-surface mud-elevation-2 py-8 px-15">
     @Body
 </div>
 
@@ -30,7 +30,7 @@
 
     SelectedMode selectedMode = SelectedMode.Auto;
 
-	private MudThemeProvider _mudThemeProvider = new();
+    private MudThemeProvider _mudThemeProvider = new();
     private bool _isDarkMode;
 
     public enum SelectedMode
@@ -42,7 +42,19 @@
 
     protected override void OnInitialized()
     {
-        Theme.PaletteLight.Primary = Colors.DeepPurple.Lighten1;
+        Theme.PaletteLight = new()
+        {
+            Primary = Colors.DeepPurple.Lighten1,
+            Secondary = Colors.Teal.Lighten1,
+            Tertiary = Colors.Amber.Default,
+
+            Background = Colors.DeepPurple.Lighten5
+        };
+        Theme.PaletteDark = new()
+		{
+            Secondary = Colors.Teal.Lighten1,
+            Background = Colors.Gray.Darken4
+		};
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -68,9 +80,9 @@
             SelectedMode.Dark => true,
             SelectedMode.Light => false,
             SelectedMode.Auto => await _mudThemeProvider.GetSystemPreference(),
-			_ => false
+            _ => false
         };
-		StateHasChanged();
+        StateHasChanged();
     }
 
     private string SelectedModeIcon => selectedMode switch

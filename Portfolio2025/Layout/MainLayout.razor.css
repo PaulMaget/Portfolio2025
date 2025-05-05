@@ -1,0 +1,11 @@
+.layout-surface {
+	margin: 0;
+	background-color: var(--mud-palette-surface);
+}
+
+@media (min-width: 1024px) {
+	.layout-surface {
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+}

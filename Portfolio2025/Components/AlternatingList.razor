@@ -4,7 +4,7 @@
 	@ChildContent
 </CascadingValue>
 
-<MudPaper style="@("display: grid; justify-content: space-around;" + Style)">
+<div style="@("display: grid; justify-content: space-around;" + Style)">
 
 	@for (int i = 0; i < RowAmount; i++)
 	{
@@ -12,7 +12,7 @@
 
 		@for (int j = 0; j < Items.Count; j++)
 		{
-			<div style="grid-row: @(localI + 1); grid-column: @(j + 1);">
+			<div style=@($"grid-row: {localI + 1}; grid-column: {j + 1}; {RowStyle}")>
 				@if (IsShownInRow(localI, j) && Items[j].Template != null)
 				{
 					@Items[j].Template;
@@ -24,7 +24,7 @@
 			</div>
 		}
 	}
-</MudPaper>
+</div>
 
 @code {
 	[Parameter]
@@ -36,7 +36,14 @@
 	[Parameter]
 	public string? Style { get; set; }
 
+	[Parameter]
+	public string? RowStyle { get; set; }
+
 	private List<AlternatingListItem> Items { get; set; } = [];
+
+	protected override void OnInitialized() {
+		Items.Clear();
+	}
 
 	public void AddRow(AlternatingListItem item)
 	{
