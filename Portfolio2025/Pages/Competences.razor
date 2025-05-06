@@ -9,13 +9,12 @@
 {
 	<h2>@category.GetName()</h2>
 
-	<MudStack Row="true" Wrap="Wrap.Wrap" AlignItems="AlignItems.Baseline" Justify="Justify.SpaceBetween">
+	<MudStack Style="margin-bottom: 2em" Row="true" Wrap="Wrap.Wrap" AlignItems="AlignItems.Baseline" Justify="Justify.SpaceBetween">
 		@foreach(Competence competence in CompetencesSource.Where(c => c.Category == category))
 		{
-			<div>
-				test : @competence.Name
-			</div>
+			<CompetenceContainer Source="competence" />
 		}
+		<MudSpacer />
 	</MudStack>
 }
 

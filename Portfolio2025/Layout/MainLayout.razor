@@ -1,12 +1,14 @@
 ﻿@inherits LayoutComponentBase
 @using Microsoft.AspNetCore.Components.Sections
+@inject NavigationManager NavigationManager
 
 @* Mud Blazor *@
 @* Required *@
 <MudThemeProvider @ref="@_mudThemeProvider" Theme="@Theme" @bind-IsDarkMode="@_isDarkMode" />
 <MudPopoverProvider />
 
-<MudPaper Class="mud-elevation-4 py-2 px-5 rounded mud-theme-surface" Style="display: flex">
+<MudPaper Class="mud-elevation-4 py-2 px-5 rounded mud-theme-surface" Style="display: flex; position: relative; z-index:1">
+    <MudButton Variant="Variant.Text" OnClick="OnSiteNameClick">Paul Maget - Portfolio</MudButton>
     <div style="flex:1"></div>
     <div style="flex-basis:100px">
         <MudMenu Icon="@SelectedModeIcon"
@@ -19,10 +21,15 @@
     </div>
 </MudPaper>
 
-<SectionOutlet SectionName="hero-frame"/>
+<div style="position: relative">
+    <div class="layout-surface">
+        <MudBreadcrumbs Items="@_breadcrumbs" Class="" Style="position: absolute; padding: 10px" />
+    </div>
+    <SectionOutlet SectionName="hero-frame"/>
 
-<div class="layout-surface mud-elevation-2 py-8 px-15">
-    @Body
+    <div class="layout-surface mud-elevation-2 py-15 px-15">
+        @Body
+    </div>
 </div>
 
 @code{
@@ -32,6 +39,12 @@
 
     private MudThemeProvider _mudThemeProvider = new();
     private bool _isDarkMode;
+
+    private List<BreadcrumbItem> _breadcrumbs = 
+    [
+		new("Accueil", "/"),
+		new("Compétences", "/competences")
+	];
 
     public enum SelectedMode
     {
@@ -70,6 +83,11 @@
             };
             StateHasChanged();
         }
+    }
+
+    private void OnSiteNameClick()
+    {
+        NavigationManager.NavigateTo("/");
     }
 
     private async Task OnSelectedModeChanged(SelectedMode mode)

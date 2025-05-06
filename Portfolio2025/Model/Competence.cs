@@ -29,12 +29,38 @@ public static class CompetenceExtensions
 
 public static class Competences
 {
-	public static Competence[] All => [CSharp, CSharp, CSharp, CSharp, CSharp, CSharp, CSharp, CSharp, CSharp];
+	public static Competence[] All => [CSharp, CSharp, JavaScript, Angular, CSharp, CSharp, CSharp, CSharp, CSharp];
 
 	public static Competence CSharp => new() {
 		Name = "C#",
 		Logo = Icons.Custom.FileFormats.FileImage,
 		Description = "Description",
 		Category = CompetenceCategory.Languages,
+	};
+
+	public static Competence JavaScript => new()
+	{
+		Name = "JavaScript",
+		Logo = Icons.Custom.FileFormats.FileImage,
+		Description = """
+			P poeifhj qespoihjf qpeoihfj qe f
+			fspeiqh epfih q.<br />
+			<br />
+			fqiueh efliquh efliuh.
+			""",
+		Category = CompetenceCategory.Languages,
+	};
+
+	public static Competence Angular => new()
+	{
+		Name = "Angular",
+		Logo = Icons.Custom.FileFormats.FileImage,
+		Description = """
+			P poeifhj qespoihjf qpeoihfj qe f
+			fspeiqh epfih q.<br />
+			<br />
+			fqiueh efliquh efliuh.
+			""",
+		Category = CompetenceCategory.Frameworks,
 	};
 }
