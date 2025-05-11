@@ -1,17 +1,32 @@
-﻿<MudTooltip Arrow="true" Style="width: 20em">
-	<ChildContent>
-		<MudIconButton Variant="Variant.Text" Color="Color.Secondary" Icon="@Icon" />
-	</ChildContent>
-	<TooltipContent>
-		<MudSkeleton Width="90px" />
-		<MudSkeleton Width="80px" />
-		<MudSkeleton Width="87px" />
-		<MudDivider/>
-		<MudButton>Voir plus</MudButton>
-	</TooltipContent>
-</MudTooltip>
+﻿@* <MudTooltip Arrow="true" Style="width: 20em"> *@
+@* 	<ChildContent> *@
+@* 	</ChildContent> *@
+@* 	<TooltipContent> *@
+@* 		<MudSkeleton Width="90px" /> *@
+@* 		<MudSkeleton Width="80px" /> *@
+@* 		<MudSkeleton Width="87px" /> *@
+@* 		<MudDivider/> *@
+@* 		<MudButton>Voir plus</MudButton> *@
+@* 	</TooltipContent> *@
+@* </MudTooltip> *@
+
+<MudIconButton OnClick="@OnClick" Variant="Variant.Text" Color="Color.Secondary" Icon="@Icon" />
+
+<MudPopover Open="@IsPopoverOpen" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter">
+	<MudSkeleton Width="90px" />
+	<MudSkeleton Width="80px" />
+	<MudSkeleton Width="87px" />
+	<MudDivider />
+	<MudButton>Voir plus</MudButton>
+</MudPopover>
 
 @code {
 	[Parameter]
 	public required string Icon { get; set; }
+
+	[Parameter]
+	public bool IsPopoverOpen { get; set; } = false;
+
+	[Parameter]
+	public Action OnClick { get; set; } = () => { };
 }
