@@ -40,11 +40,37 @@
     private MudThemeProvider _mudThemeProvider = new();
     private bool _isDarkMode;
 
-    private List<BreadcrumbItem> _breadcrumbs = 
-    [
-		new("Accueil", "/"),
-		new("Compétences", "/competences")
-	];
+    private List<BreadcrumbItem> _breadcrumbs
+    {
+        get
+        {
+            List<BreadcrumbItem> items = [];
+
+            items.Add(new("Accueil", "/"));
+
+            string[] path = NavigationManager.Uri.Replace(NavigationManager.BaseUri, "").Split('/');
+
+            foreach (string link in path)
+            {
+                if (link.Length < 2)
+                    continue;
+
+                string visualName = link.Substring(0, 1).ToUpper() + link.Substring(1);
+                string href = items.Last().Href + $"{link}/";
+
+                items.Add(new(visualName, href));
+            }
+            return items;
+        }
+    }
+
+    private string SelectedModeIcon => selectedMode switch
+    {
+		SelectedMode.Light => Icons.Material.Filled.LightMode,
+		SelectedMode.Dark => Icons.Material.Filled.DarkMode,
+		SelectedMode.Auto => Icons.Material.Filled.AutoMode,
+		_ => Icons.Material.Filled.AutoMode
+	};
 
     public enum SelectedMode
     {
@@ -85,11 +111,6 @@
         }
     }
 
-    private void OnSiteNameClick()
-    {
-        NavigationManager.NavigateTo("/");
-    }
-
     private async Task OnSelectedModeChanged(SelectedMode mode)
     {
         selectedMode = mode;
@@ -103,11 +124,8 @@
         StateHasChanged();
     }
 
-    private string SelectedModeIcon => selectedMode switch
+    private void OnSiteNameClick()
     {
-		SelectedMode.Light => Icons.Material.Filled.LightMode,
-		SelectedMode.Dark => Icons.Material.Filled.DarkMode,
-		SelectedMode.Auto => Icons.Material.Filled.AutoMode,
-		_ => Icons.Material.Filled.AutoMode
-	};
+        NavigationManager.NavigateTo("/");
+    }
 }
