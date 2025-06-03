@@ -18,27 +18,42 @@
 <AlternatingList Style="margin: 50px" RowStyle="margin: 10px">
 	<AlternatingListItem>
 		<Template>
-			<CompetenceCircle Icon="@Icons.Material.Filled.Email" IsPopoverOpen="@OpenedCompetencePopovers[0]" OnClick="@(() => OnCompetencePopoverClick(0))" />
+			<CompetenceCircle Icon="@Icons.Material.Filled.Email"
+				IsPopoverOpen="@OpenedCompetencePopovers[0]"
+				OnClick="@(() => OnCompetencePopoverClick(0))"
+				OnClosed="@(() => OnCompetencePopoverClosed(0))" />
 		</Template>
 	</AlternatingListItem>
 	<AlternatingListItem>
 		<Template>
-			<CompetenceCircle Icon="@Icons.Material.Filled.Girl" IsPopoverOpen="@OpenedCompetencePopovers[1]" OnClick="@(() => OnCompetencePopoverClick(1))" />
+			<CompetenceCircle Icon="@Icons.Material.Filled.Girl"
+				IsPopoverOpen="@OpenedCompetencePopovers[1]"
+				OnClick="@(() => OnCompetencePopoverClick(1))"
+				OnClosed="@(() => OnCompetencePopoverClosed(1))" />
 		</Template>
 	</AlternatingListItem>
 	<AlternatingListItem>
 		<Template>
-			<CompetenceCircle Icon="@Icons.Material.Filled.Delete" IsPopoverOpen="@OpenedCompetencePopovers[2]" OnClick="@(() => OnCompetencePopoverClick(2))" />
+			<CompetenceCircle Icon="@Icons.Material.Filled.Delete"
+				IsPopoverOpen="@OpenedCompetencePopovers[2]"
+				OnClick="@(() => OnCompetencePopoverClick(2))"
+				OnClosed="@(() => OnCompetencePopoverClosed(2))" />
 		</Template>
 	</AlternatingListItem>
 	<AlternatingListItem>
 		<Template>
-			<CompetenceCircle Icon="@Icons.Material.Filled.Grain" IsPopoverOpen="@OpenedCompetencePopovers[3]" OnClick="@(() => OnCompetencePopoverClick(3))" />
+			<CompetenceCircle Icon="@Icons.Material.Filled.Grain"
+				IsPopoverOpen="@OpenedCompetencePopovers[3]"
+				OnClick="@(() => OnCompetencePopoverClick(3))"
+				OnClosed="@(() => OnCompetencePopoverClosed(3))" />
 		</Template>
 	</AlternatingListItem>
 	<AlternatingListItem>
 		<Template>
-			<CompetenceCircle Icon="@Icons.Material.Filled.Group" IsPopoverOpen="@OpenedCompetencePopovers[4]" OnClick="@(() => OnCompetencePopoverClick(4))" />
+			<CompetenceCircle Icon="@Icons.Material.Filled.Group"
+				IsPopoverOpen="@OpenedCompetencePopovers[4]"
+				OnClick="@(() => OnCompetencePopoverClick(4))"
+				OnClosed="@(() => OnCompetencePopoverClosed(4))" />
 		</Template>
 	</AlternatingListItem>
 </AlternatingList>
@@ -62,5 +77,10 @@
 		OpenedCompetencePopovers = OpenedCompetencePopovers.Select((b) => false).ToArray();
 
 		OpenedCompetencePopovers[index] = !selectedCurrentValue;
+	}
+
+	public void OnCompetencePopoverClosed(int index)
+	{
+		OpenedCompetencePopovers[index] = false;
 	}
 }

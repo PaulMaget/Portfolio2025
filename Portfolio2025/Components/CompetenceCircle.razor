@@ -12,13 +12,15 @@
 
 <MudIconButton OnClick="@OnClick" Variant="Variant.Text" Color="Color.Secondary" Icon="@Icon" />
 
-<MudPopover Open="@IsPopoverOpen" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter">
+<MudPopover Open="@IsPopoverOpen" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter" Style="padding: 0.1em">
 	<MudSkeleton Width="90px" />
 	<MudSkeleton Width="80px" />
 	<MudSkeleton Width="87px" />
 	<MudDivider />
 	<MudButton>Voir plus</MudButton>
 </MudPopover>
+
+<MudOverlay Visible="@IsPopoverOpen" AutoClose="true" OnClosed="@OnClosed" LockScroll="false" />
 
 @code {
 	[Parameter]
@@ -29,4 +31,7 @@
 
 	[Parameter]
 	public Action OnClick { get; set; } = () => { };
+
+	[Parameter]
+	public Action OnClosed { get; set; } = () => { };
 }
