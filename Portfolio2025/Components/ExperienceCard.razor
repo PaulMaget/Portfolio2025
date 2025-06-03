@@ -1,0 +1,50 @@
+﻿
+<MudCard Elevation="@(IsActivated ? 3 : 1)"
+	Style="@($"scale: {(IsActivated ? "1.1" : "1")}")"
+	onmouseover="@( () => OnActivate())" onmouseout="@(() => OnDeactivate())"
+	onfocus="@(() => OnActivate())" onblur="@(() => OnDeactivate())">
+
+	<MudCardMedia Image="@ImageUrl" />
+	<MudCardHeader>
+		<CardHeaderContent>
+			<MudText Typo="Typo.h2">@Title</MudText>
+		</CardHeaderContent>
+		
+		<CardHeaderActions>
+			<MudIconButton Icon="@Icons.Material.Filled.MoreVert" />
+		</CardHeaderActions>
+	</MudCardHeader>
+
+	@if (IsActivated)
+	{
+		<MudText>@((MarkupString)Description)</MudText>
+		<MudCardActions>
+			<MudButton>
+				Voir plus
+			</MudButton>
+		</MudCardActions>
+	}
+</MudCard>
+
+@code {
+	[Parameter]
+	public string ImageUrl { get; set; } = "https://placehold.co/50x50";
+
+	[Parameter]
+	public string Title { get; set; } = "";
+
+	[Parameter]
+	public string Description { get; set; } = "";
+
+	public bool IsActivated { get; set; } = false;
+
+	public void OnActivate()
+	{
+		IsActivated = true;
+	}
+
+	public void OnDeactivate()
+	{
+		IsActivated = false;
+	}
+}
