@@ -1,7 +1,10 @@
 ﻿@using Portfolio2025.Model
 
-<div style="width: 15em; margin: 1em">
-	<MudIcon  Icon="@Source.Logo" Style="display: block; margin: auto;" />
+<div style="width: 15em; padding: 1em; margin: auto">
+	@* <MudIcon  Icon="@Source.Logo" Style="display: block; margin: auto;" /> *@
+	<div style="display: block; margin: 0 5em">
+		<MudImage Src="@Source.Logo" Fluid="true" Style="margin: auto;" />
+	</div>
 	<h3 style="margin: auto; text-align: center">@Source.Name</h3>
 	<p style="margin: auto; text-align: center">@((MarkupString)Source.Description)</p>
 </div>

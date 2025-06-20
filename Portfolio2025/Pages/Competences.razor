@@ -5,17 +5,36 @@
 
 <h1>Mes Compétences</h1>
 
-@foreach(CompetenceCategory category in CompetencesSource.Select(c => c.Category).Distinct())
+@* @foreach(CompetenceCategory category in CompetencesSource.Select(c => c.Category).Distinct())
 {
 	<h2>@category.GetName()</h2>
 
-	<MudStack Style="margin-bottom: 2em" Row="true" Wrap="Wrap.Wrap" AlignItems="AlignItems.Baseline" Justify="Justify.SpaceBetween">
+	<MudStack Style="margin-bottom: 2em" Row="true" Wrap="Wrap.Wrap" AlignItems="AlignItems.Baseline" Justify="Justify.FlexStart">
 		@foreach(Competence competence in CompetencesSource.Where(c => c.Category == category))
 		{
 			<CompetenceContainer Source="competence" />
 		}
 		<MudSpacer />
 	</MudStack>
+} *@
+
+@foreach ((CompetenceCategory category, int index) item in CompetencesSource.Select(c => c.Category).Distinct().Select((c, i) => (c, i)))
+{
+	if( item.index > 0)
+	{
+		<MudDivider Style="margin: 2em 10%" DividerType="DividerType.Middle" />
+	}
+
+	<h2 style="margin-top: 1.5em">@item.category.GetName()</h2>
+
+	<MudGrid Justify="Justify.FlexStart">
+		@foreach (Competence competence in CompetencesSource.Where(c => c.Category == item.category))
+		{
+			<MudItem xs="12" sm="6" md="4" lg="3" xl="2" xxl="1">
+				<CompetenceContainer Source="competence" />
+			</MudItem>
+		}
+	</MudGrid>
 }
 
 @code {
