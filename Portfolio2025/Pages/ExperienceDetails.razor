@@ -5,12 +5,22 @@
 
 @if (Source == null)
 {
-    <MudAlert Severity="Severity.Error" Class="mt-4">L'expérience demandée n'existe pas.</MudAlert>
+    <MudAlert Severity="Severity.Error" Class="mt-4">La page demandée n'existe pas.</MudAlert>
     return;
 }
 
 <h1>@(Source?.Name)</h1>
 <h2>@(Source?.Organization) - @(Source?.Year)</h2>
+
+@if (Source?.Competences.Any() ?? false)
+{
+    <MudStack Row=true AlignItems="AlignItems.Center" Justify="Justify.SpaceEvenly">
+        @foreach (Competence item in Source?.Competences ?? [])
+        {
+            <CompetenceCircle Source="item" />
+        }
+    </MudStack>
+}
 
 @((MarkupString)(Source?.HtmlDescription ?? ""))
 

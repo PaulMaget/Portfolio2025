@@ -18,7 +18,7 @@
 
 	@if (IsActivated)
 	{
-		<div class="card-description-container" style="flex-grow: 1; flex-shrink: 1; overflow: hidden">
+		<div class="card-description-container">
 			<MudText Style="text-overflow: ellipsis;">
 				@((MarkupString)(Source?.ShortHtmlDescription ?? ""))
 			</MudText>
@@ -43,11 +43,15 @@
 	.mud-card.active {
 		transition: 1s;
 		scale: 1.08;
+		border-width: thin;
+		border-color: rgb(160, 160, 160)
 	}
 
 	.mud-card.inactive {
 		transition: 1s;
 		scale: 1;
+		border-width: thin;
+		border-color: rgb(140, 140, 140)
 	}
 
 	.mud-card.active .mud-card-media {
@@ -70,8 +74,12 @@
 		flex-shrink: 0;
 	}
 
-	.mud-card .card-description-container::before{
-		/* background: linear-gradient(to down, ); */
+	.mud-card .card-description-container{
+		flex-grow: 1;
+		flex-shrink: 1;
+		overflow: hidden;
+		padding-left: 1em;
+		padding-right: 1em;
 	}
 </style>
 

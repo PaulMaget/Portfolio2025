@@ -1,4 +1,5 @@
-﻿@* <MudTooltip Arrow="true" Style="width: 20em"> *@
+﻿@using Portfolio2025.Model
+@* <MudTooltip Arrow="true" Style="width: 20em"> *@
 @* 	<ChildContent> *@
 @* 	</ChildContent> *@
 @* 	<TooltipContent> *@
@@ -10,21 +11,32 @@
 @* 	</TooltipContent> *@
 @* </MudTooltip> *@
 
-<MudIconButton OnClick="@OnClick" Variant="Variant.Text" Color="Color.Secondary" Icon="@Icon" />
+@* <MudIconButton OnClick="@OnClick" Variant="Variant.Text" Color="Color.Secondary" Icon="@Icon" /> *@
 
-<MudPopover Open="@IsPopoverOpen" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter" Style="padding: 0.1em">
-	<MudSkeleton Width="90px" />
-	<MudSkeleton Width="80px" />
-	<MudSkeleton Width="87px" />
-	<MudDivider />
-	<MudButton>Voir plus</MudButton>
-</MudPopover>
+<div style="width: 6em; margin:auto">
+	<div style="display: block; padding: 1em;">
+		<MudImage Src="@Source.Logo" Fluid="true" Style="margin: auto;" onclick="@OnClick" />
+	</div>
+	<MudPopover Open="@IsPopoverOpen" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter" Style="padding: 1em;">
+		<div style="max-width: 15em;">
+			@((MarkupString)(Source?.HtmlDescription ?? ""))))
+		</div>
+
+		<MudDivider />
+		<MudButton Href="@("/competences#" + Source?.Id)">
+			Voir plus
+		</MudButton>
+	</MudPopover>
+</div>
 
 <MudOverlay Visible="@IsPopoverOpen" AutoClose="true" OnClosed="@OnClosed" LockScroll="false" />
 
 @code {
+	// [Parameter]
+	// public required string Icon { get; set; }
+
 	[Parameter]
-	public required string Icon { get; set; }
+	public required Competence Source { get; set; }
 
 	[Parameter]
 	public bool IsPopoverOpen { get; set; } = false;
