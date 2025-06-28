@@ -1,31 +1,38 @@
-﻿
-<MudCard Class="@(IsActivated ? "active" : "inactive")" Elevation="@(IsActivated ? 3 : 1)"
-	onmouseover="@( () => OnActivate())" onmouseout="@(() => OnDeactivate())"
-	onfocus="@(() => OnActivate())" onblur="@(() => OnDeactivate())">
+﻿@using Portfolio2025.Model
 
-	<MudCardMedia Style="flex-shrink: 0;" Image="@ImageUrl" />
+<MudCard Class="@(IsActivated ? "active" : "inactive")" Elevation="@(IsActivated ? 3 : 1)"
+	onmouseenter="@( () => OnActivate())"
+	onfocus="@(() => OnActivate())"
+	onmouseleave="@(() => OnDeactivate())"
+	onblur="@(() => OnDeactivate())">
+	
+	@if (Source?.ImageUrl != null)
+	{
+		<MudCardMedia Style="flex-shrink: 0;" Image="@Source?.ImageUrl" />
+	}
 	<MudCardHeader>
 		<CardHeaderContent>
-			<h2>@Title</h2>
+			<h2>@(Source?.Name ?? "")</h2>
 		</CardHeaderContent>
 	</MudCardHeader>
 
-	<div style="display: flex; flex-direction: column; height: 100%">
-		@if (IsActivated)
-		{
-			<div style="flex-grow: 1;">
-				<MudText Style="flex-grow: 1; text-overflow: ellipsis;">
-					@((MarkupString)Description)
-				</MudText>
-			</div>
-		}
-
-		<MudCardActions Class="card-actions-container">
-			<MudButton>
-				Voir plus
-			</MudButton>
-		</MudCardActions>
-	</div>
+	@if (IsActivated)
+	{
+		<div class="card-description-container" style="flex-grow: 1; flex-shrink: 1; overflow: hidden">
+			<MudText Style="text-overflow: ellipsis;">
+				@((MarkupString)(Source?.ShortHtmlDescription ?? ""))
+			</MudText>
+		</div>
+	}
+	else
+	{
+		<div style="flex-grow:1"></div>
+	}
+	<MudCardActions Class="card-actions-container">
+		<MudButton Href="@("/experiences/" + Source?.Id)">
+			Voir plus
+		</MudButton>
+	</MudCardActions>
 </MudCard>
 
 <style>
@@ -50,7 +57,7 @@
 
 	.mud-card.inactive .mud-card-media {
 		transition: 1s;
-		max-height: 300px;
+		max-height: 190px;
 	}
 
 	.card-actions-container {
@@ -62,19 +69,26 @@
 	.mud-card.active .card-actions-container {
 		flex-shrink: 0;
 	}
+
+	.mud-card .card-description-container::before{
+		/* background: linear-gradient(to down, ); */
+	}
 </style>
 
 @code {
 	[Parameter]
-	public string ImageUrl { get; set; } = "https://placehold.co/50x50";
+	public Experience? Source { get; set; }
 
-	[Parameter]
-	public string Title { get; set; } = "";
+	//[Parameter]
+	//public string ImageUrl { get; set; } = "https://placehold.co/50x50";
 
-	[Parameter]
-	public string Description { get; set; } = "";
+	// [Parameter]
+	// public string Title { get; set; } = "";
 
-	public bool IsActivated { get; set; } = true; //= false;
+	// [Parameter]
+	// public string Description { get; set; } = "";
+
+	public bool IsActivated { get; set; } = false;
 
 	public void OnActivate()
 	{
@@ -83,6 +97,6 @@
 
 	public void OnDeactivate()
 	{
-		// IsActivated = false;
+		IsActivated = false;
 	}
 }

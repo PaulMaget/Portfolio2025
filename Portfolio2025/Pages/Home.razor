@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.Components.Sections
 @using Portfolio2025.Components
+@using Portfolio2025.Model
 
 <PageTitle>Home</PageTitle>
 
@@ -66,19 +67,15 @@
 
 <h1>Mes Expériences</h1>
 
-<MudGrid>
-	<MudItem xs="3">
+<MudGrid Style="margin: 20px">
+	@* <MudItem xs="3">
 		<ExperienceCard Title="Hello World!" Description="This is the description of an Hello World.<br>I like it 10/10!" />
-	</MudItem>
+	</MudItem> *@
+
 	<MudItem xs="3">
-		<ExperienceCard Title="Hello World!" Description="This is the description of an Hello World.<br>I like it 10/10!" />
+		<ExperienceCard Source=Experiences.StageMJC/>
 	</MudItem>
-	<MudItem xs="3">
-		<ExperienceCard Title="Hello World!" Description="This is the description of an Hello World.<br>I like it 10/10!" />
-	</MudItem>
-	<MudItem xs="3">
-		<ExperienceCard Title="Hello World!" Description="This is the description of an Hello World.<br>I like it 10/10!" />
-	</MudItem>
+	
 </MudGrid>
 
 <MudDivider />
