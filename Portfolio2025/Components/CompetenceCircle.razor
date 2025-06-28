@@ -15,7 +15,10 @@
 
 <div style="width: 6em; margin:auto">
 	<div style="display: block; padding: 1em;">
-		<MudImage Src="@Source.Logo" Fluid="true" Style="margin: auto;" onclick="@OnClick" />
+		<MudImage Src="@Source.Logo" Fluid="true" onclick="@OnClick"
+				  Style="margin: auto; ">
+		</MudImage>
+		@* -webkit-filter: drop-shadow(5px 5px 5px #222222); filter: drop-shadow(5px 5px 5px #222222); *@
 	</div>
 	<MudPopover Open="@IsPopoverOpen" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter" Style="padding: 1em;">
 		<div style="max-width: 15em;">
@@ -23,7 +26,7 @@
 		</div>
 
 		<MudDivider />
-		<MudButton Href="@("/competences#" + Source?.Id)">
+		<MudButton Href="@("/competences#" + Source?.GetId())">
 			Voir plus
 		</MudButton>
 	</MudPopover>

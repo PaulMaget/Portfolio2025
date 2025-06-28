@@ -2,7 +2,6 @@
 
 public record Experience
 {
-    public required int Id { get; set; }
     public required string Name { get; set; }
     public required string Organization { get; set; }
     public required string Year { get; set; }
@@ -12,12 +11,20 @@ public record Experience
     public List<Competence> Competences { get; set; } = [];
 }
 
+public static class ExperienceExtensions
+{
+    public static int GetId(this Experience experience)
+    {
+        return Experiences.All.Select((e, i) => new { e, i })
+            .FirstOrDefault(x => x.e == experience)?.i ?? -1;
+    }
+}
+
 public static class Experiences
 {
-    public static Experience[] All => [StageMJC];
+    public static List<Experience> All => [StageMJC];
 
-    public static Experience StageMJC => new() {
-        Id = 0,
+    public static Experience StageMJC { get; } = new() {
         Name = "Animateur bénévole",
         Organization = "MJC Manosque",
         Year = "2022",
