@@ -64,39 +64,6 @@
 							  OnClosed="@(() => OnCompetencePopoverClosed(4))" />
 		</Template>
 	</AlternatingListItem>
-	
-	@* <AlternatingListItem>
-		<Template>
-			<CompetenceCircle Icon="@Icons.Material.Filled.Girl"
-				IsPopoverOpen="@OpenedCompetencePopovers[1]"
-				OnClick="@(() => OnCompetencePopoverClick(1))"
-				OnClosed="@(() => OnCompetencePopoverClosed(1))" />
-		</Template>
-	</AlternatingListItem>
-	<AlternatingListItem>
-		<Template>
-			<CompetenceCircle Icon="@Icons.Material.Filled.Delete"
-				IsPopoverOpen="@OpenedCompetencePopovers[2]"
-				OnClick="@(() => OnCompetencePopoverClick(2))"
-				OnClosed="@(() => OnCompetencePopoverClosed(2))" />
-		</Template>
-	</AlternatingListItem>
-	<AlternatingListItem>
-		<Template>
-			<CompetenceCircle Icon="@Icons.Material.Filled.Grain"
-				IsPopoverOpen="@OpenedCompetencePopovers[3]"
-				OnClick="@(() => OnCompetencePopoverClick(3))"
-				OnClosed="@(() => OnCompetencePopoverClosed(3))" />
-		</Template>
-	</AlternatingListItem>
-	<AlternatingListItem>
-		<Template>
-			<CompetenceCircle Icon="@Icons.Material.Filled.Group"
-				IsPopoverOpen="@OpenedCompetencePopovers[4]"
-				OnClick="@(() => OnCompetencePopoverClick(4))"
-				OnClosed="@(() => OnCompetencePopoverClosed(4))" />
-		</Template>
-	</AlternatingListItem> *@
 </AlternatingList>
 
 <MudStack AlignItems="AlignItems.End">
@@ -108,10 +75,6 @@
 <h1>Mes Expériences</h1>
 
 <MudGrid Style="padding: 40px">
-	@* <MudItem xs="3">
-		<ExperienceCard Title="Hello World!" Description="This is the description of an Hello World.<br>I like it 10/10!" />
-	</MudItem> *@
-
 	<MudItem xs="4">
 		<ExperienceCard Source=Experiences.OrganizingHistory/>
 	</MudItem>
@@ -123,7 +86,6 @@
 	<MudItem xs="4">
 		<ExperienceCard />
 	</MudItem>
-	
 </MudGrid>
 
 <MudDivider />
@@ -145,7 +107,7 @@
 <MudDivider />
 
 <MudStack AlignItems="AlignItems.Center">
-	<MudButton Color="Color.Secondary" Variant="Variant.Filled" DropShadow=true Style="margin: 40px; min-width: 45%; padding: 1.2em">
+	<MudButton Href="./contact" Color="Color.Secondary" Variant="Variant.Filled" DropShadow=true Style="margin: 40px; min-width: 45%; padding: 1.2em">
 		Me contacter
 	</MudButton>
 </MudStack>
