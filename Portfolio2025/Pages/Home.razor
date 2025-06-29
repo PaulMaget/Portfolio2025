@@ -9,12 +9,12 @@
 
 <MainPicture Size="250" Top="-235" Style="margin: 10px;">
 	<h1 style="text-align: center; margin-top: 10px;">Paul Maget</h1>
-	<MudDivider />
+	<MudDivider DividerType="DividerType.Middle" />
 	<h2 style="text-align: center">Développeur C#</h2>
 </MainPicture>	
 
 <!--<h1>Mes Compétences</h1>-->
-<AlternatingList Style="margin: 20px" RowStyle="margin: 10px">
+<AlternatingList Style="margin: 5% 0" RowStyle="margin: 2%">
 	
 	<AlternatingListItem>
 		<Template>
@@ -68,7 +68,7 @@
 	<MudButton Variant="Variant.Filled" Color="Color.Primary" Href="./competences">Voir plus</MudButton>
 </MudStack>
 
-<MudDivider />
+<MudDivider DividerType="DividerType.Middle" />
 
 @* <h1>A propos de moi</h1> *@
 
@@ -84,25 +84,25 @@
 	</MudText>
 </div>
 
-<MudDivider />
+<MudDivider DividerType="DividerType.Middle" />
 
 <h1>Mes Expériences</h1>
 
 <MudGrid Style="padding: 40px">
-	<MudItem xs="4">
+	<MudItem xs="12" sm="12" md="12" lg="4">
 		<ExperienceCard Source=Experiences.OrganizingHistory/>
 	</MudItem>
 
-	<MudItem xs="4">
+	<MudItem xs="12" sm="12" md="12" lg="4">
 		<ExperienceCard Source=Experiences.StageMJC />
 	</MudItem>
 	
-	<MudItem xs="4">
+	<MudItem xs="12" sm="12" md="12" lg="4">
 		<ExperienceCard />
 	</MudItem>
 </MudGrid>
 
-<MudDivider />
+<MudDivider DividerType="DividerType.Middle" />
 
 <MudStack AlignItems="AlignItems.Center">
 	<MudButton Href="./contact" Color="Color.Secondary" Variant="Variant.Filled" DropShadow=true Style="margin: 40px; min-width: 45%; padding: 1.2em">
