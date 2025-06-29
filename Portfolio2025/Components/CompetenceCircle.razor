@@ -21,11 +21,11 @@
 		@* -webkit-filter: drop-shadow(5px 5px 5px #222222); filter: drop-shadow(5px 5px 5px #222222); *@
 	</div>
 	<MudPopover Open="@IsPopoverOpen" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter" Style="padding: 1em;">
-		<div style="max-width: 15em;">
-			@((MarkupString)(Source?.HtmlDescription ?? ""))))
+		<div style="max-width: 20em;">
+			@((MarkupString)(Source?.HtmlDescription ?? ""))
 		</div>
 
-		<MudDivider />
+		<MudDivider DividerType="DividerType.Middle" />
 		<MudButton Href="@("./competences#" + Source?.GetId())">
 			Voir plus
 		</MudButton>

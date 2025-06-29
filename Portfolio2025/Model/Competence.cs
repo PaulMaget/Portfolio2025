@@ -43,8 +43,13 @@ public static class Competences
 	{
         Name = "C#",
 		Logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Logo_C_sharp.svg/1200px-Logo_C_sharp.svg.png",
-		HtmlDescription = "Le langage haut niveau, orienté objet de Microsoft,<br>l'entreprise américaine notamment responsable de Flight Simulator 2020.",
-		Category = CompetenceCategory.Languages,
+		HtmlDescription = """
+			J'ai initialement appris le C# en autodidacte pour utiliser Unity.<br>
+			Très vite, je suis tombé amoureux du langage et des frameworks qui l'entourent.<br>
+			Je suis activement le développement du langage et de l'écosystème .Net.<br>
+			J'ai eu l'occasion de travailler professionnellement avec C# dans le cadre de mon stage et de mon alternance de BUT.
+			""",
+        Category = CompetenceCategory.Languages,
 	};
 
 	public static Competence JavaScript { get; } = new()
@@ -52,13 +57,8 @@ public static class Competences
         Name = "JavaScript",
 		Logo = "https://lh3.googleusercontent.com/proxy/nuWxyZIEBmlwkLPiIpq_bJ4eXDw9uozT2D6WSBxvR4NYB3bMZ9T1TrYNao1zQL9MivRNV33D9QeJiDbVManBCLt2Yw8muTBeeOF3ghlbhT2NiQFFScHqgFbwGqFMTKHop6gMf6jQz9kqkPH42mdpaJcx",
         HtmlDescription = """
-			P poeifhj qespoihjf qpeoihfj qe f
-			fspeiqh epfih q.<br />
-			<br>
-			<br>
-			<br>
-			<br>
-			fqiueh efliquh efliuh.
+			J'ai appris le JavaScript pendant mon BUT.<br>
+			Je l'ai utilisé dans plusieurs projets universitaires, en vanilla et avec le framework Angular.
 			""",
 		Category = CompetenceCategory.Languages,
 	};
@@ -80,10 +80,8 @@ public static class Competences
         Name = "Angular",
 		Logo = "https://brandlogos.net/wp-content/uploads/2025/04/angular_icon-logo_brandlogos.net_jn7wi-512x542.png",
 		HtmlDescription = """
-			P poeifhj qespoihjf qpeoihfj qe f
-			fspeiqh epfih q.<br />
-			<br />
-			fqiueh efliquh efliuh.
+			J'ai appris Angular dans le cadre de mon BUT.<br>
+			Je l'ai utilisé dans un projet universitaire, avec une base de données Firebase.
 			""",
 		Category = CompetenceCategory.Frameworks,
 	};
@@ -104,10 +102,11 @@ public static class Competences
         Name = "Unity",
         Logo = "https://cdn-icons-png.flaticon.com/512/5969/5969346.png",
         HtmlDescription = """
-			P poeifhj qespoihjf qpeoihfj qe f
-			fspeiqh epfih q.<br />
-			<br />
-			fqiueh efliquh efliuh.
+			J'apprends et je suis le développement d'Unity depuis 2019.<br>
+			J'expermiente avec le moteur pour comprendre ses fonctionnalités, ses bonnes pratiques
+			et je développe des outils visant à améliorer la rapidité de développement.<br>
+			J'ai eu l'occasion de participer à des Game Jams en 2023 et 2024.
+			Les jeux développés sont disponibles sur mon <a class="default-link" href="https://poldev.itch.io/">Itch.io</a>.
 			""",
         Category = CompetenceCategory.Tools,
     };
