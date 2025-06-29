@@ -37,7 +37,7 @@ public static class CompetenceExtensions
 
 public static class Competences
 {
-	public static List<Competence> All => [CSharp, JavaScript, Angular, Unity, CSharp, CSharp, CSharp, CSharp];
+	public static List<Competence> All => [CSharp, JavaScript, Php, Angular, Symfony, Unity, CSharp, CSharp];
 
 	public static Competence CSharp { get; } = new()
 	{
@@ -63,7 +63,19 @@ public static class Competences
 		Category = CompetenceCategory.Languages,
 	};
 
-	public static Competence Angular { get; } = new()
+    public static Competence Php { get; } = new()
+    {
+        Name = "Php",
+        Logo = "https://images.seeklogo.com/logo-png/10/2/php-logo-png_seeklogo-108600.png",
+        HtmlDescription = """
+			J'ai appris le PHP dans le cadre de mon BUT.<br>
+			Je l'ai utilisé dans plusieurs projets universitaires, notamment avec le framework Symfony.
+			""",
+        Category = CompetenceCategory.Languages,
+    };
+
+
+    public static Competence Angular { get; } = new()
 	{
         Name = "Angular",
 		Logo = "https://brandlogos.net/wp-content/uploads/2025/04/angular_icon-logo_brandlogos.net_jn7wi-512x542.png",
@@ -72,6 +84,17 @@ public static class Competences
 			fspeiqh epfih q.<br />
 			<br />
 			fqiueh efliquh efliuh.
+			""",
+		Category = CompetenceCategory.Frameworks,
+	};
+
+    public static Competence Symfony { get; } = new()
+	{
+        Name = "Symfony",
+		Logo = "https://images.icon-icons.com/2415/PNG/512/symfony_original_wordmark_logo_icon_146328.png",
+		HtmlDescription = """
+			J'ai commencé par apprendre Symfony en autodidacte pour un projet universitaire.<br>
+			J'ai ensuite eu des cours sur ce framework dans le cadre de mon BUT.
 			""",
 		Category = CompetenceCategory.Frameworks,
 	};

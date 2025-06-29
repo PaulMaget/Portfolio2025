@@ -1,6 +1,7 @@
 ﻿@inherits LayoutComponentBase
 @using Microsoft.AspNetCore.Components.Sections
 @inject NavigationManager NavigationManager
+@inject HttpClient Http
 
 @* Mud Blazor *@
 @* Required *@
@@ -14,9 +15,15 @@
         <MudMenu Icon="@SelectedModeIcon"
         Color="Color.Primary"
         AriaLabel="Open user menu">
-            <MudMenuItem Icon="@Icons.Material.Filled.LightMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Light)" />
-            <MudMenuItem Icon="@Icons.Material.Filled.DarkMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Dark)" />
-            <MudMenuItem Icon="@Icons.Material.Filled.AutoMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Auto)" />
+            <MudMenuItem Icon="@Icons.Material.Filled.LightMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Light)">
+				<MudText>Clair</MudText>
+            </MudMenuItem>
+            <MudMenuItem Icon="@Icons.Material.Filled.DarkMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Dark)">
+				<MudText>Sombre</MudText>
+            </MudMenuItem>
+            <MudMenuItem Icon="@Icons.Material.Filled.AutoMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Auto)">
+				<MudText>Auto</MudText>
+            </MudMenuItem>
         </MudMenu>
     </div>
 </MudPaper>
@@ -30,6 +37,19 @@
     <div class="layout-surface mud-elevation-2 py-15 px-15">
         @Body
     </div>
+
+    <MudStack Row=true Style="margin-top: 150px; gap: 0.3em;" AlignItems="AlignItems.Center" Justify="Justify.Center">
+        Site réalisé avec<br />
+        
+        <MudLink Href="https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-9.0">
+            Blazor
+        </MudLink>
+        et
+		<MudLink Href="https://mudblazor.com/" Style="text-box: auto">
+            <MudIcon Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Primary"/>
+            MudBlazor
+        </MudLink>
+    </MudStack>
 </div>
 
 @code{
@@ -56,6 +76,8 @@
                     continue;
 
                 string visualName = link.Substring(0, 1).ToUpper() + link.Substring(1);
+                visualName = visualName.Split('#').FirstOrDefault() ?? "";
+
                 string href = items.Last().Href + $"{link}/";
 
                 items.Add(new(visualName, href));
@@ -66,11 +88,13 @@
 
     private string SelectedModeIcon => selectedMode switch
     {
-		SelectedMode.Light => Icons.Material.Filled.LightMode,
-		SelectedMode.Dark => Icons.Material.Filled.DarkMode,
-		SelectedMode.Auto => Icons.Material.Filled.AutoMode,
-		_ => Icons.Material.Filled.AutoMode
-	};
+        SelectedMode.Light => Icons.Material.Filled.LightMode,
+        SelectedMode.Dark => Icons.Material.Filled.DarkMode,
+        SelectedMode.Auto => Icons.Material.Filled.AutoMode,
+        _ => Icons.Material.Filled.AutoMode
+    };
+
+    // public string BlazorIcon { get; private set; } = "";
 
     public enum SelectedMode
     {
@@ -94,6 +118,8 @@
             Secondary = Colors.Teal.Lighten1,
             Background = Colors.Gray.Darken4
 		};
+
+        // BlazorIcon = await Http.GetStringAsync("images/blazor.svg");
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

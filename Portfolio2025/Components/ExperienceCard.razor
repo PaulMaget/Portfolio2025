@@ -37,35 +37,36 @@
 
 <style>
 	.mud-card {
-		height: 300px;
+		height: 370px;
+		overflow: hidden;
 	}
 
 	.mud-card.active {
-		transition: 1s;
+		transition: 0.2s;
 		scale: 1.08;
 		border-width: thin;
 		border-color: rgb(160, 160, 160)
 	}
 
 	.mud-card.inactive {
-		transition: 1s;
+			transition: 0.2s;
 		scale: 1;
 		border-width: thin;
 		border-color: rgb(140, 140, 140)
 	}
 
 	.mud-card.active .mud-card-media {
-		transition: 1s;
+		transition: 0.2s;
 		max-height: 100px;
 	}
 
 	.mud-card.inactive .mud-card-media {
-		transition: 1s;
+		transition: 0.2s;
 		max-height: 190px;
 	}
 
 	.card-actions-container {
-		transition: 1s;
+		transition: 0.2s;
 		flex-grow: 0;
 		flex-shrink: 1
 	}

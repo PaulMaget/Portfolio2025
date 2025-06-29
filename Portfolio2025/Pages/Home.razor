@@ -16,7 +16,7 @@
 </MainPicture>	
 
 <!--<h1>Mes Compétences</h1>-->
-<AlternatingList Style="margin: 50px" RowStyle="margin: 10px">
+<AlternatingList Style="margin: 20px" RowStyle="margin: 10px">
 	
 	<AlternatingListItem>
 		<Template>
@@ -36,6 +36,8 @@
 		</Template>
 	</AlternatingListItem>
 
+	@* Asp.Net *@
+
 	<AlternatingListItem>
 		<Template>
 			<CompetenceCircle Source="Competences.Angular"
@@ -47,10 +49,19 @@
 
 	<AlternatingListItem>
 		<Template>
-			<CompetenceCircle Source="Competences.Unity"
+			<CompetenceCircle Source="Competences.Angular"
 							  IsPopoverOpen="@OpenedCompetencePopovers[3]"
 							  OnClick="@(() => OnCompetencePopoverClick(3))"
 							  OnClosed="@(() => OnCompetencePopoverClosed(3))" />
+		</Template>
+	</AlternatingListItem>
+
+	<AlternatingListItem>
+		<Template>
+			<CompetenceCircle Source="Competences.Unity"
+							  IsPopoverOpen="@OpenedCompetencePopovers[4]"
+							  OnClick="@(() => OnCompetencePopoverClick(4))"
+							  OnClosed="@(() => OnCompetencePopoverClosed(4))" />
 		</Template>
 	</AlternatingListItem>
 	
@@ -96,18 +107,61 @@
 
 <h1>Mes Expériences</h1>
 
-<MudGrid Style="margin: 20px">
+<MudGrid Style="padding: 40px">
 	@* <MudItem xs="3">
 		<ExperienceCard Title="Hello World!" Description="This is the description of an Hello World.<br>I like it 10/10!" />
 	</MudItem> *@
 
-	<MudItem xs="3">
-		<ExperienceCard Source=Experiences.StageMJC/>
+	<MudItem xs="4">
+		<ExperienceCard Source=Experiences.OrganizingHistory/>
+	</MudItem>
+
+	<MudItem xs="4">
+		<ExperienceCard Source=Experiences.StageMJC />
+	</MudItem>
+	
+	<MudItem xs="4">
+		<ExperienceCard />
 	</MudItem>
 	
 </MudGrid>
 
 <MudDivider />
+
+<h1>A propos de moi</h1>
+
+<div class="about-me">
+	<MudText Typo="Typo.body1">
+		Passionné d'informatique, je me suis spécialisé en C# après avoir fait un BUT informatique généraliste.<br />
+		Mes compétences couvrent la conception orientée objet, le développement web / mobile, la gestion de projet et le jeu vidéo avec Unity.
+	</MudText>
+
+	<MudText Typo="Typo.body1">
+		J'ai l'habitude d'apprendre en autodidacte, je suis curieux et autonome.<br />
+		Je suis particulièrement intéressé par la conception d'architecture, le développement backend et le jeu vidéo.
+	</MudText>
+</div>
+
+<MudDivider />
+
+<MudStack AlignItems="AlignItems.Center">
+	<MudButton Color="Color.Secondary" Variant="Variant.Filled" DropShadow=true Style="margin: 40px; min-width: 45%; padding: 1.2em">
+		Me contacter
+	</MudButton>
+</MudStack>
+
+<style>
+	.mud-divider {
+		margin: 20px;
+	}
+	.about-me {
+		padding: 40px;
+	}
+	.about-me p {
+		margin: 1em;
+		text-align: center;
+	}
+</style>
 
 @code {
 
