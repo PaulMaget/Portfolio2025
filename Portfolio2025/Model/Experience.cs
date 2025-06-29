@@ -42,19 +42,19 @@ public static class Experiences
         <p>
             En 2022, avec l'accord de la MJC de Manosque, j'ai animé à deux reprises des stages de création de jeux vidéo d'une semaine pour des jeunes de 12 à 25 ans avec le logiciel Unity.
         </p>
-        <img src="/images/MJC_photo1.png" alt="Photo prise lors d'un des stages" style="width: 50%" />
+        <img src="./images/MJC_photo1.png" alt="Photo prise lors d'un des stages" style="width: 50%" />
         <p>
             À chaque fois, je me préparais plusieurs semaines à l'avance afin de définir le sujet et d’adapter ma pédagogie.
         </p>
         <p>
             Le premier jeu était en 2D et le second en 3D. En raison du temps limité, nous avons utilisé des ressources gratuites et j’ai limité les programmes complexes en privilégiant le visual scripting.
         </p>
-        <img src="/images/MJC_photo2.png" alt="Photo prise lors d'un des stages" style="width: 30%" />
+        <img src="./images/MJC_photo2.png" alt="Photo prise lors d'un des stages" style="width: 30%" />
         <p>
             Ces stages ont permis d’initier les participants à l’utilisation d’Unity et à la conception de jeux vidéo. De mon côté, ils m'ont formé au rôle de pédagogue et de chef de projet, des compétences qui m'ont ensuite été précieuses en BUT.
         </p>
         """,
-        ImageUrl = "/images/MJC_photo1.png",
+        ImageUrl = "./images/MJC_photo1.png",
     };
 
     public static Experience OrganizingHistory { get; } = new()
@@ -84,15 +84,15 @@ public static class Experiences
             Le projet était en groupe de huit, pour une durée de trois mois.<br>
             Dans mon équipe, j'ai proposé le concept du jeu, j'ai supervisé l'aspect technique et j'ai aidé à répartir les tâches pendant la réalisation.
         </p>
-        <img src="/images/OrganizingHistory_home.png" alt="Capture de l'écran d'accueil du site" style="width: 50%" />
+        <img src="./images/OrganizingHistory_home.png" alt="Capture de l'écran d'accueil du site" style="width: 50%" />
         <p>
             Nous avons choisi d'utiliser le framework Symfony pour le backend et JavaScript vanilla pour le frontend.
         </p>
-        <img src="/images/OrganizingHistory_game.png" alt="Capture de l'écran du jeu" style="width: 50%" />
+        <img src="./images/OrganizingHistory_game.png" alt="Capture de l'écran du jeu" style="width: 50%" />
         <p>
             Notre projet a remporté le 3ème prix du meilleur prototype parmi tous les projets de la promotion. À la suite d'un vote de la promotion, nous avons aussi remporté le prix du public parmi les 3 projets qui étaient présentés.
         </p>
         """,
-        ImageUrl = "/images/OrganizingHistory_home.png",
+        ImageUrl = "./images/OrganizingHistory_home.png",
     };
 }
