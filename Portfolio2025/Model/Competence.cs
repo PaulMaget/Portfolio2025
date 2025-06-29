@@ -37,7 +37,7 @@ public static class CompetenceExtensions
 
 public static class Competences
 {
-	public static List<Competence> All => [CSharp, JavaScript, Php, Angular, Symfony, Unity, CSharp, CSharp];
+	public static List<Competence> All => [CSharp, JavaScript, Php, AspNet, Angular, Symfony, Unity];
 
 	public static Competence CSharp { get; } = new()
 	{
@@ -45,7 +45,6 @@ public static class Competences
 		Logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Logo_C_sharp.svg/1200px-Logo_C_sharp.svg.png",
 		HtmlDescription = """
 			J'ai initialement appris le C# en autodidacte pour utiliser Unity.<br>
-			Très vite, je suis tombé amoureux du langage et des frameworks qui l'entourent.<br>
 			Je suis activement le développement du langage et de l'écosystème .Net.<br>
 			J'ai eu l'occasion de travailler professionnellement avec C# dans le cadre de mon stage et de mon alternance de BUT.
 			""",
@@ -74,6 +73,16 @@ public static class Competences
         Category = CompetenceCategory.Languages,
     };
 
+    public static Competence AspNet { get; } = new()
+    {
+        Name = "ASP .Net",
+        Logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png",
+        HtmlDescription = """
+			J'ai appris ASP .Net en autodidacte avant de l'utiliser pendant mon stage et mon alternance de BUT.<br>
+			Je suis passionné par l'écosystème .Net et je continue à apprendre et à expérimenter avec les possibilités qu'il offre.
+			""",
+        Category = CompetenceCategory.Frameworks,
+    };
 
     public static Competence Angular { get; } = new()
 	{
@@ -103,11 +112,11 @@ public static class Competences
         Logo = "https://cdn-icons-png.flaticon.com/512/5969/5969346.png",
         HtmlDescription = """
 			J'apprends et je suis le développement d'Unity depuis 2019.<br>
-			J'expermiente avec le moteur pour comprendre ses fonctionnalités, ses bonnes pratiques
-			et je développe des outils visant à améliorer la rapidité de développement.<br>
 			J'ai eu l'occasion de participer à des Game Jams en 2023 et 2024.
 			Les jeux développés sont disponibles sur mon <a class="default-link" href="https://poldev.itch.io/">Itch.io</a>.
 			""",
+			//J'expermiente avec le moteur pour comprendre ses fonctionnalités, ses bonnes pratiques
+			//et je développe des outils visant à améliorer la rapidité de développement.<br>
         Category = CompetenceCategory.Tools,
     };
 }
