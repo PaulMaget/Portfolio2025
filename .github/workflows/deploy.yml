@@ -22,13 +22,9 @@ jobs:
     - name: Install .NET WASM Build Tools
       run: dotnet workload install wasm-tools
 
-    - name: test
-      run: |
-        ls -l
-
     - name: Build and deploy
       run: |
-        dotnet publish ./Portfolio2025.csproj -c:Release -p:GHPages=true -o dist/Portfolio2025 --nologo
+        dotnet publish ./Portfolio2025/Portfolio2025.csproj -c:Release -p:GHPages=true -o dist/Portfolio2025 --nologo
 
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
