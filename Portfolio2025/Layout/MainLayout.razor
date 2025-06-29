@@ -40,20 +40,18 @@
         @Body
     </div>
 
-    <div style="display:flex">
-        <MudStack Row=true Style="margin-top: 150px; gap: 0.3em; flex-grow: 1; flex-shrink: 0;" AlignItems="AlignItems.Center" Justify="Justify.Center">
-            Site réalisé avec<br />
+    <MudStack Row=true Style="margin-top: 150px; margin-bottom:10px; gap: 0.3em; flex-grow: 1; flex-shrink: 0;" AlignItems="AlignItems.Center" Justify="Justify.Center">
+        Site réalisé avec<br />
         
-            <MudLink Href="https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-9.0">
-                Blazor
-            </MudLink>
-            et
-		    <MudLink Href="https://mudblazor.com/">
-                @* <MudIcon Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Primary"/> *@
-                MudBlazor
-            </MudLink>
-        </MudStack>
-    </div>
+        <MudLink Href="https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-9.0">
+            Blazor
+        </MudLink>
+        et
+		<MudLink Href="https://mudblazor.com/">
+            @* <MudIcon Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Primary"/> *@
+            MudBlazor
+        </MudLink>
+    </MudStack>
 </div>
 
 @code{
