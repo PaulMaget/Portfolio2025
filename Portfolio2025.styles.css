@@ -1,0 +1,12 @@
+/* /Layout/MainLayout.razor.rz.scp.css */
+.layout-surface[b-boocab905o] {
+	margin: 0;
+	background-color: var(--mud-palette-surface);
+}
+
+@media (min-width: 1024px) {
+	.layout-surface[b-boocab905o] {
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+}
