@@ -66,7 +66,7 @@
         {
             List<BreadcrumbItem> items = [];
 
-            items.Add(new("Accueil", "/"));
+            items.Add(new("Accueil", "./"));
 
             string[] path = NavigationManager.Uri.Replace(NavigationManager.BaseUri, "").Split('/');
 
@@ -152,6 +152,6 @@
 
     private void OnSiteNameClick()
     {
-        NavigationManager.NavigateTo("/");
+        NavigationManager.NavigateTo("./");
     }
 }
