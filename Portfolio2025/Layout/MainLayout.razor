@@ -5,54 +5,57 @@
 
 @* Mud Blazor *@
 @* Required *@
+<PageTitle>Paul Maget - Portfolio</PageTitle>
+
 <MudThemeProvider @ref="@_mudThemeProvider" Theme="@Theme" @bind-IsDarkMode="@_isDarkMode" />
 <MudPopoverProvider />
 
-<PageTitle>Paul Maget - Portfolio</PageTitle>
 
-<MudPaper Class="mud-elevation-4 py-2 px-5 mud-theme-surface" Style="display: flex; position: relative; z-index:1" Square="true">
-    <MudButton Variant="Variant.Text" Href="./">Paul Maget - Portfolio</MudButton>
-    <div style="flex:1"></div>
-    <div style="flex-basis:100px">
-        <MudMenu Icon="@SelectedModeIcon"
-        Color="Color.Primary"
-        AriaLabel="Open user menu">
-            <MudMenuItem Icon="@Icons.Material.Filled.LightMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Light)">
-				<MudText>Clair</MudText>
-            </MudMenuItem>
-            <MudMenuItem Icon="@Icons.Material.Filled.DarkMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Dark)">
-				<MudText>Sombre</MudText>
-            </MudMenuItem>
-            <MudMenuItem Icon="@Icons.Material.Filled.AutoMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Auto)">
-				<MudText>Auto</MudText>
-            </MudMenuItem>
-        </MudMenu>
+<CascadingValue Value="@_isDarkMode">
+    <MudPaper Class="mud-elevation-4 py-2 px-5 mud-theme-surface" Style="display: flex; position: relative; z-index:1" Square="true">
+        <MudButton Variant="Variant.Text" Href="./">Paul Maget - Portfolio</MudButton>
+        <div style="flex:1"></div>
+        <div style="flex-basis:100px">
+            <MudMenu Icon="@SelectedModeIcon"
+                     Color="Color.Primary"
+                     AriaLabel="Open user menu">
+                <MudMenuItem Icon="@Icons.Material.Filled.LightMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Light)">
+                    <MudText>Clair</MudText>
+                </MudMenuItem>
+                <MudMenuItem Icon="@Icons.Material.Filled.DarkMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Dark)">
+                    <MudText>Sombre</MudText>
+                </MudMenuItem>
+                <MudMenuItem Icon="@Icons.Material.Filled.AutoMode" OnClick="x => OnSelectedModeChanged(SelectedMode.Auto)">
+                    <MudText>Auto</MudText>
+                </MudMenuItem>
+            </MudMenu>
+        </div>
+    </MudPaper>
+
+    <div style="position: relative">
+        <div class="layout-surface">
+            <MudBreadcrumbs Items="@_breadcrumbs" Class="" Style="position: absolute; padding: 10px" />
+        </div>
+        <SectionOutlet SectionName="hero-frame" />
+
+        <div class="layout-surface mud-elevation-2 py-15" style="padding: 0 5%">
+            @Body
+        </div>
+
+        <MudStack Row=true Style="margin-top: 150px; margin-bottom:10px; gap: 0.3em; flex-grow: 1; flex-shrink: 0;" AlignItems="AlignItems.Center" Justify="Justify.Center">
+            Site réalisé avec<br />
+
+            <MudLink Href="https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-9.0">
+                Blazor
+            </MudLink>
+            et
+            <MudLink Href="https://mudblazor.com/">
+                @* <MudIcon Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Primary"/> *@
+                MudBlazor
+            </MudLink>
+        </MudStack>
     </div>
-</MudPaper>
-
-<div style="position: relative">
-    <div class="layout-surface">
-        <MudBreadcrumbs Items="@_breadcrumbs" Class="" Style="position: absolute; padding: 10px" />
-    </div>
-    <SectionOutlet SectionName="hero-frame"/>
-
-    <div class="layout-surface mud-elevation-2 py-15" style="padding: 0 5%">
-        @Body
-    </div>
-
-    <MudStack Row=true Style="margin-top: 150px; margin-bottom:10px; gap: 0.3em; flex-grow: 1; flex-shrink: 0;" AlignItems="AlignItems.Center" Justify="Justify.Center">
-        Site réalisé avec<br />
-        
-        <MudLink Href="https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-9.0">
-            Blazor
-        </MudLink>
-        et
-		<MudLink Href="https://mudblazor.com/">
-            @* <MudIcon Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Primary"/> *@
-            MudBlazor
-        </MudLink>
-    </MudStack>
-</div>
+</CascadingValue>
 
 @code{
     MudTheme Theme = new();

@@ -4,7 +4,12 @@
 @using Portfolio2025.Model
 
 <SectionContent SectionName="hero-frame">
-	<div class="mud-theme-primary" style="width: 100%; height: 250px;"></div>
+	<div style="width: 100%; height: 250px; overflow: hidden">
+		<MudImage Style="width: 100%" Height="250" ObjectFit="ObjectFit.None" ObjectPosition="ObjectPosition.Center"
+				  Src="@(IsDarkMode
+							  ? "./images/AbstractBackground1_transparent.png"
+									  : "./images/AbstractBackground1_light.png")" />
+	</div>
 </SectionContent>
 
 <MainPicture Size="250" Top="-235" Style="margin: 10px;">
@@ -124,6 +129,8 @@
 </style>
 
 @code {
+	[CascadingParameter]
+	protected bool IsDarkMode { get; set; }
 
 	bool[] OpenedCompetencePopovers { get; set; } = [false, false, false, false, false];
 
