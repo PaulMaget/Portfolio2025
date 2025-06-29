@@ -72,6 +72,10 @@
     content: var(--blazor-load-percentage-text, "Loading");
 }
 
+a.default-link {
+    color: cornflowerblue;
+}
+
 /*code {
     color: #c02d76;
 }
