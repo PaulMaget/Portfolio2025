@@ -82,6 +82,7 @@
 
                 string visualName = link.Substring(0, 1).ToUpper() + link.Substring(1);
                 visualName = visualName.Split('#').FirstOrDefault() ?? "";
+                visualName = visualName.Split('-').FirstOrDefault() ?? "";
 
                 string href = items.Last().Href + $"{link}/";
 
