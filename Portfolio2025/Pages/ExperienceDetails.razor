@@ -14,7 +14,7 @@
 
 @if (Source?.Competences.Any() ?? false)
 {
-    <MudStack Row=true AlignItems="AlignItems.Center" Justify="Justify.SpaceEvenly">
+    <MudStack Row=true AlignItems="AlignItems.Center" Justify="Justify.SpaceEvenly" Wrap=Wrap.Wrap Style="gap: 0; margin-top: 1em;">
         @foreach (Competence item in Source?.Competences ?? [])
         {
             <CompetenceCircle Source="item" />
@@ -24,30 +24,26 @@
 
 @if (Source?.HardSkills.Any() ?? false)
 {
-    <MudGrid Justify="Justify.Center" Style="margin: auto; width: 90%; margin-top: 1.5em;">
+    <MudStack Row=true AlignItems="AlignItems.Center" Justify="Justify.SpaceEvenly" Wrap=Wrap.Wrap Style="gap: 0; margin: auto; width: 90%; margin-top: 1.5em;">
         @foreach (string item in Source?.HardSkills ?? [])
         {
-            <MudItem xs="12" sm="12" md="12" lg="6" xl="4" xxl="3" Style="padding: 0">
-                <MudStack Row=true Justify="Justify.Center">
-                    <MudChip T="string" Label="true">@item</MudChip>
-                </MudStack>
-            </MudItem>
+            <MudStack Row=true Justify="Justify.Center">
+                <MudChip T="string" Label="true">@item</MudChip>
+            </MudStack>
         }
-    </MudGrid>
+    </MudStack>
 }
 
 @if (Source?.SoftSkills.Any() ?? false)
 {
-    <MudGrid Justify="Justify.Center" Style="margin: auto; width: 90%; margin-top: 1.5em;">
+    <MudStack Row=true AlignItems="AlignItems.Center" Justify="Justify.SpaceEvenly" Wrap=Wrap.Wrap Style="gap: 0; margin: auto; width: 90%; margin-top: 1em;">
         @foreach (string item in Source?.SoftSkills ?? [])
         {
-            <MudItem xs="12" sm="12" md="12" lg="6" xl="4" xxl="3" Style="padding: 0">
-                <MudStack Row=true Justify="Justify.Center">
-                    <MudChip T="string" Label="false">@item</MudChip>
-                </MudStack>
-            </MudItem>
+            <MudStack Row=true Justify="Justify.Center">
+                <MudChip T="string" Label="false">@item</MudChip>
+            </MudStack>
         }
-    </MudGrid>
+    </MudStack>
 }
 
 <MudDivider Style="margin: 1.5em" DividerType="DividerType.Middle"/>
