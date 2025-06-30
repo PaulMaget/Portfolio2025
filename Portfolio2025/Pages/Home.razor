@@ -14,7 +14,7 @@
 
 <MainPicture Size="250" Top="-235" Style="margin: 10px;">
 	<h1 style="text-align: center; margin-top: 10px;">Paul Maget</h1>
-	<MudDivider DividerType="DividerType.Middle" />
+	<MudDivider DividerType="DividerType.Middle" Style="margin: 0.5em" />
 	<h2 style="text-align: center">Développeur C#</h2>
 </MainPicture>	
 
@@ -73,7 +73,7 @@
 	<MudButton Variant="Variant.Filled" Color="Color.Primary" Href="./competences">Voir plus</MudButton>
 </MudStack>
 
-<MudDivider DividerType="DividerType.Middle" />
+<MudDivider DividerType="DividerType.Middle" Class="main-divider" />
 
 @* <h1>A propos de moi</h1> *@
 
@@ -89,7 +89,7 @@
 	</MudText>
 </div>
 
-<MudDivider DividerType="DividerType.Middle" />
+<MudDivider DividerType="DividerType.Middle" Class="main-divider" />
 
 <h1>Mes Expériences</h1>
 
@@ -107,7 +107,41 @@
 	</MudItem>
 </MudGrid>
 
-<MudDivider DividerType="DividerType.Middle" />
+<MudDivider DividerType="DividerType.Middle" Class="main-divider" />
+
+<h1>Mon Parcours</h1>
+
+<MudTimeline TimelineAlign="TimelineAlign.Start" Style="margin: 2em;">
+	<MudTimelineItem Color="Color.Secondary" Elevation="25">
+		<ItemOpposite>
+			<MudText Color="Color.Secondary" Typo="Typo.h6">2022-2025</MudText>
+		</ItemOpposite>
+		<ItemContent>
+			<MudPaper Elevation="0" Class="mt-n1">
+				<MudText Color="Color.Secondary" Typo="Typo.h6" GutterBottom="false">BUT Informatique</MudText>
+				<MudText Typo="Typo.subtitle2" GutterBottom="true">IUT2, dep. INFO, UGA, Grenoble (38)</MudText>
+				<MudText Typo="Typo.body2">Parcours : "Réalisation d’applications : conception, développement, validation".</MudText>
+			</MudPaper>
+		</ItemContent>
+	</MudTimelineItem>
+
+	<MudTimelineItem Color="Color.Primary" Elevation="0" TimelineAlign="TimelineAlign.End">
+		<ItemOpposite>
+			<MudText Color="Color.Primary" Typo="Typo.h6">Juin 2022</MudText>
+		</ItemOpposite>
+		<ItemContent>
+			<MudPaper Elevation="0" Class="mt-n1">
+				<MudText Color="Color.Primary" Typo="Typo.h6" GutterBottom="false">Bac Général</MudText>
+				<MudText Typo="Typo.subtitle2" GutterBottom="true">Lycée Les Iscles, Manosque (04)</MudText>
+				<MudText Typo="Typo.body2">Spécialités : Maths / NSI.</MudText>
+				<MudText Typo="Typo.body2">Mention bien.</MudText>
+			</MudPaper>
+		</ItemContent>
+	</MudTimelineItem>
+</MudTimeline>
+
+
+<MudDivider DividerType="DividerType.Middle" Class="main-divider" />
 
 <MudStack AlignItems="AlignItems.Center">
 	<MudButton Href="./contact" Color="Color.Secondary" Variant="Variant.Filled" DropShadow=true Style="margin: 40px; min-width: 45%; padding: 1.2em">
@@ -116,8 +150,8 @@
 </MudStack>
 
 <style>
-	.mud-divider {
-		margin: 20px;
+	.main-divider {
+		margin: 1.5em;
 	}
 	.about-me {
 		padding: 40px;
