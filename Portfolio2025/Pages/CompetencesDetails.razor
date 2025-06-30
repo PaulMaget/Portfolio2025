@@ -5,19 +5,6 @@
 
 <h1>Mes Compétences</h1>
 
-@* @foreach(CompetenceCategory category in CompetencesSource.Select(c => c.Category).Distinct())
-{
-	<h2>@category.GetName()</h2>
-
-	<MudStack Style="margin-bottom: 2em" Row="true" Wrap="Wrap.Wrap" AlignItems="AlignItems.Baseline" Justify="Justify.FlexStart">
-		@foreach(Competence competence in CompetencesSource.Where(c => c.Category == category))
-		{
-			<CompetenceContainer Source="competence" />
-		}
-		<MudSpacer />
-	</MudStack>
-} *@
-
 @foreach ((CompetenceCategory category, int index) item in CompetencesSource.Select(c => c.Category).Distinct().Select((c, i) => (c, i)))
 {
 	if( item.index > 0)

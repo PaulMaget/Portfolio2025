@@ -22,6 +22,36 @@
     </MudStack>
 }
 
+@if (Source?.HardSkills.Any() ?? false)
+{
+    <MudGrid Justify="Justify.Center" Style="margin: auto; width: 90%; margin-top: 1.5em;">
+        @foreach (string item in Source?.HardSkills ?? [])
+        {
+            <MudItem xs="12" sm="12" md="12" lg="6" xl="4" xxl="3" Style="padding: 0">
+                <MudStack Row=true Justify="Justify.Center">
+                    <MudChip T="string" Label="true">@item</MudChip>
+                </MudStack>
+            </MudItem>
+        }
+    </MudGrid>
+}
+
+@if (Source?.SoftSkills.Any() ?? false)
+{
+    <MudGrid Justify="Justify.Center" Style="margin: auto; width: 90%; margin-top: 1.5em;">
+        @foreach (string item in Source?.SoftSkills ?? [])
+        {
+            <MudItem xs="12" sm="12" md="12" lg="6" xl="4" xxl="3" Style="padding: 0">
+                <MudStack Row=true Justify="Justify.Center">
+                    <MudChip T="string" Label="false">@item</MudChip>
+                </MudStack>
+            </MudItem>
+        }
+    </MudGrid>
+}
+
+<MudDivider Style="margin: 1.5em" DividerType="DividerType.Middle"/>
+
 @((MarkupString)(Source?.HtmlDescription ?? ""))
 
 <style>
