@@ -1,4 +1,5 @@
 ﻿using MudBlazor;
+using System.Runtime.CompilerServices;
 
 namespace Portfolio2025.Model;
 
@@ -39,7 +40,7 @@ public static class CompetenceExtensions
 
 public static class Competences
 {
-	public static List<Competence> All => [CSharp, JavaScript, Php, AspNet, Angular, Symfony, Unity, RabbitMq, SignalR];
+	public static List<Competence> All => [CSharp, JavaScript, Php, Java, Cpp, NetCore, Angular, Symfony, Unity, RabbitMq, SignalR, Docker];
 
     public static Competence CSharp { get; } = new()
     {
@@ -75,12 +76,33 @@ public static class Competences
         Category = CompetenceCategory.Languages,
     };
 
-    public static Competence AspNet { get; } = new()
+    public static Competence Java { get; } = new()
     {
-        Name = "ASP .Net",
-        Logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png",
+        Name = "Java",
+        Logo = "./images/Java.png",
         HtmlDescription = """
-			J'ai appris ASP .Net en autodidacte avant de l'utiliser pendant mon stage et mon alternance de BUT.<br>
+			J'ai appris le Java dans le cadre de mon BUT.
+			Je l'ai utilisé dans plusieurs projets universitaires.
+			""",
+        Category = CompetenceCategory.Languages,
+    };
+
+    public static Competence Cpp { get; } = new()
+    {
+        Name = "C++",
+        Logo = "./images/Cpp.png",
+        HtmlDescription = """
+			J'ai appris le C++ dans le cadre de mon BUT.
+			""",
+        Category = CompetenceCategory.Languages,
+    };
+
+    public static Competence NetCore { get; } = new()
+    {
+        Name = ".Net Core",
+        Logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/2048px-.NET_Core_Logo.svg.png",
+        HtmlDescription = """
+			J'ai appris .Net en autodidacte avant de l'utiliser avec ASP .Net pendant mon stage et mon alternance de BUT.<br>
 			Je suis passionné par l'écosystème .Net et je continue à apprendre et à expérimenter avec les possibilités qu'il offre.
 			""",
         Category = CompetenceCategory.Frameworks,
@@ -111,7 +133,7 @@ public static class Competences
     public static Competence Unity { get; } = new()
     {
         Name = "Unity",
-        Logo = "https://cdn-icons-png.flaticon.com/512/5969/5969346.png",
+        Logo = "https://cdn-icons-png.flaticon.com/512/5969/5969346.png",   // ./images/Unity.png
         HtmlDescription = """
             J'apprends et je suis le développement d'Unity depuis 2019.<br>
             J'ai eu l'occasion de participer à des Game Jams en 2023 et 2024.<br>
@@ -140,6 +162,17 @@ public static class Competences
         HtmlDescription = """
             J’ai appris SignalR pendant mon alternance de BUT.<br>
             Je l’ai utilisé pour mettre en place une communication par événements entre des applications backend et frontend.
+            """,
+        Category = CompetenceCategory.Other,
+    };
+
+    public static Competence Docker { get; } = new()
+    {
+        Name = "Docker",
+        Logo = "./images/Docker.png",
+        HtmlDescription = """
+            J’ai appris Docker dans le cadre de mon BUT.<br>
+            Je l’ai également utilisé dans le cadre de mon stage et de mon alternance de BUT.
             """,
         Category = CompetenceCategory.Other,
     };

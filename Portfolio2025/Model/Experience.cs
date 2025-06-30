@@ -120,7 +120,7 @@ public static class Experiences
         Year = "2024-2025",
         Competences = [
             Competences.CSharp,
-            Competences.AspNet,
+            Competences.NetCore,
             Competences.RabbitMq,
             Competences.SignalR,
         ],
