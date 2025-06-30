@@ -100,7 +100,7 @@ public static class Competences
     public static Competence Symfony { get; } = new()
     {
         Name = "Symfony",
-        Logo = "https://images.icon-icons.com/2415/PNG/512/symfony_original_wordmark_logo_icon_146328.png",
+        Logo = "./images/Symfony.png",
         HtmlDescription = """
             J'ai commencé à apprendre Symfony en autodidacte pour un projet universitaire.<br>
             J'ai ensuite eu des cours sur ce framework dans le cadre de mon BUT.
