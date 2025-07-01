@@ -171,8 +171,7 @@ public static class Competences
         Name = "Docker",
         Logo = "./images/Docker.png",
         HtmlDescription = """
-            J’ai appris Docker dans le cadre de mon BUT.<br>
-            Je l’ai également utilisé dans le cadre de mon stage et de mon alternance de BUT.
+            J’ai appris Docker dans le cadre de mon BUT.
             """,
         Category = CompetenceCategory.Other,
     };
